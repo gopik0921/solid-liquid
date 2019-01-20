@@ -1,0 +1,59 @@
+﻿@model Project.Models.AdminLogin
+@{
+    ViewBag.Title = "AdminLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width" />
+    <title>Admin Login</title>
+    <style>
+        #login-div{
+            position:center;
+            top:35%;
+            left:40%;
+           
+            
+        }
+        
+    </style>
+</head>
+<body>
+   
+    <div class="form-horizontal" id="login-div">
+        @using (Html.BeginForm("Authorise", "AdminAccount", FormMethod.Post))
+        {
+            <h2 style="text-align:center">Admin Login</h2>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Log In" class="btn btn-default" />
+            <input id="Reset1" type="reset" value="Reset" class="btn btn-default" />
+        </div>
+    </div>
+    <p class="col-md-offset-2 col-md-10">Not an Admin?<a href="~/AdminAccount/Register">Register</a></p>
+        }
+    </div>
+            <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+            <script src="~/Scripts/jquery.validate.min.js"></script>
+            <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+</html>

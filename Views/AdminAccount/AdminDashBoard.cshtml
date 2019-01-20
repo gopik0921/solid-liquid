@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "AdminDashBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if(Session["Id"]==null)
+    {
+        Response.Redirect("~/AdminAccount/AdminLogin");
+    }
+}
+
+<h2>AdminDashBoard</h2>
+
+<a href="Logout">Log Out</a>
